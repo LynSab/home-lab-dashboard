@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+    <style>
+        a {
+            text-decoration: none;
+        }
+        .image-wrapper {
+            padding-bottom: 3px;
+        }
+        .service-wrapper {
+            border:#696666 solid 1px;
+            margin: 20px;
+            padding: 10px;
+            width: 33%;
+        }
+
+        .text {
+            color: rgb(210, 252, 252);
+            font-family:'Open Sans','Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif ;
+        }
+    </style>
+</head>
+<body style="background: #3b3a3a ;">
+    <h1 class="text">Hello {{.Name}}</h1>
+    <div>
+        {{range .ServiceData}}
+            <div class="service-wrapper">
+                <div class="image-wrapper">
+                    <img src="{{.Icon}}" style="width:250px;"/>
+                </div>
+                <a class="text" href="{{.Url}}">
+                    {{.Name}}  
+                </a>
+            </div>
+        {{end}}
+    </div>
+</body>
+</html>
