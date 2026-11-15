@@ -1,0 +1,7 @@
+[build]
+# ... your other build settings ...
+
+
+# Enable polling - required for Windows / Docker volumes
+poll = true
+poll_interval = 500 

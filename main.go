@@ -17,7 +17,9 @@ func main() {
 		port = ":8080"
 	}
 
-	http.HandleFunc("/", handlers.HomeHandler)
+	mux := http.NewServeMux()
 
-	log.Fatal(http.ListenAndServe(port, nil))
+	mux.HandleFunc("GET /", handlers.HomeHandler)
+
+	log.Fatal(http.ListenAndServe(port, mux))
 }

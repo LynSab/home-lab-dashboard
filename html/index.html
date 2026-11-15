@@ -15,7 +15,7 @@
             width: 33%;
         }
 
-        .text {
+        .text, .text a {
             color: rgb(210, 252, 252);
             font-family:'Open Sans','Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif ;
         }
@@ -25,13 +25,14 @@
     <h1 class="text">Hello {{.Name}}</h1>
     <div>
         {{range .ServiceData}}
-            <div class="service-wrapper">
+            <div class="service-wrapper text">
                 <div class="image-wrapper">
                     <img src="{{.Icon}}" style="width:250px;"/>
                 </div>
-                <a class="text" href="{{.Url}}">
-                    {{.Name}}  
+                <a href="{{.Url}}">
+                    {{.Name}} 
                 </a>
+                <p>{{.Description}}</p>
             </div>
         {{end}}
     </div>

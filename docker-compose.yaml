@@ -1,0 +1,25 @@
+services:
+  home-lab-dashboard:
+    build: 
+      context: .
+    container_name: home-lab-dashboard
+    volumes:
+      - ./:/app
+      - /var/run/docker.sock:/var/run/docker.sock
+    ports:
+      - "8080:8080"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+  
+  nginx:
+    image: nginx
+    container_name: nginx
+
+  jellyfin:
+    image: jellyfin/jellyfin
+    container_name: jellyfin
+    labels:
+      - home-lab-dashboard.name=jellyfin
+      - home-lab-dashboard.desciption=A media server
+      - home-lab-dashboard.url=http://jellyfin.local
+      - home-lab-dashboard.icon=https://jellyfin.org/images/logo.svg
